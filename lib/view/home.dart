@@ -1,3 +1,4 @@
+import 'package:agenda_app/view/buscar.dart';
 import 'package:agenda_app/view/recursos/barra_superior.dart';
 import 'package:agenda_app/view/recursos/drawer.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ class HomeState extends State<Home> {
                             letterSpacing: BorderSide.strokeAlignCenter),
                       ),
                       const Padding(padding: EdgeInsets.only(bottom: 80)),
+
                       //Botao Buscar Contato
                       Builder(builder: (BuildContext context) {
                         return ElevatedButton(
@@ -48,13 +50,13 @@ class HomeState extends State<Home> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const Home()));
+                                    builder: (context) => const Busca()));
                           },
                           child: Container(
-                            width: 150,
+                            width: 170,
                             padding: const EdgeInsets.all(10),
                             child: const Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Icon(
                                   Icons.search,
@@ -72,7 +74,38 @@ class HomeState extends State<Home> {
                           ),
                         );
                       }),
+
+                      //Espaçamento entre os botoes
+                       const Padding(  padding: EdgeInsets.only(bottom: 15)),
+
                       //Botão cadastrar contato
+                      Builder(builder: (BuildContext context) {
+                        return ElevatedButton(
+                          onPressed: () {
+                           
+                          },
+                          child: Container(
+                            width: 170,
+                            padding: const EdgeInsets.all(10),
+                            child: const Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  color: Colors.white54,
+                                ),
+                                Text(
+                                  "Cadastrar Contato",
+                                  style: TextStyle(
+                                    color: Colors.white54,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }),
                     ],
                   ),
                 ))

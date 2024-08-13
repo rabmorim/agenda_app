@@ -12,7 +12,7 @@ ThemeData estilo() {
 
     //botao flutuante
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.white
+      backgroundColor: Colors.black
     )
   );
 }

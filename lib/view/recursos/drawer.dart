@@ -1,3 +1,4 @@
+import 'package:agenda_app/view/buscar.dart';
 import 'package:agenda_app/view/home.dart';
 import 'package:flutter/material.dart';
 
@@ -113,7 +114,12 @@ class MenuDrawer extends StatelessWidget{
               ),
               //Vai para pagina de contatos
               onTap: () {
-                
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>const Busca()
+                    )
+                 );
               },
             ),
 
