@@ -1,4 +1,5 @@
 import 'package:agenda_app/view/buscar.dart';
+import 'package:agenda_app/view/cadastro.dart';
 import 'package:agenda_app/view/recursos/barra_superior.dart';
 import 'package:agenda_app/view/recursos/drawer.dart';
 import 'package:flutter/material.dart';
@@ -82,7 +83,10 @@ class HomeState extends State<Home> {
                       Builder(builder: (BuildContext context) {
                         return ElevatedButton(
                           onPressed: () {
-                           
+                            Navigator.push(
+                              context,
+                                MaterialPageRoute(
+                                  builder: (context) => const Cadastro()));
                           },
                           child: Container(
                             width: 170,

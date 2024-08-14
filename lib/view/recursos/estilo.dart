@@ -8,11 +8,17 @@ ThemeData estilo() {
     //Tema do corpo da aplicação
     scaffoldBackgroundColor: const Color(0xff303030),
     drawerTheme: const DrawerThemeData(backgroundColor: Color(0xff303030)),
+    textSelectionTheme: const TextSelectionThemeData(
+      cursorColor: Colors.grey,
+    ),
+    
+
     
 
     //botao flutuante
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: Colors.black
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.black,
+      hoverColor: Colors.grey.shade800
     )
   );
 }

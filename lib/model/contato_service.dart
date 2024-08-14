@@ -1,6 +1,7 @@
 import 'package:agenda_app/model/contato.dart';
 
 class ContatoService {
+  
   List listarContato () {
     //retorna a lista de contatos
     List<Contato> contatos = [

@@ -1,5 +1,6 @@
 import 'package:agenda_app/model/contato.dart';
 import 'package:agenda_app/model/contato_service.dart';
+import 'package:agenda_app/view/cadastro.dart';
 import 'package:agenda_app/view/perfil.dart';
 import 'package:agenda_app/view/recursos/barra_superior.dart';
 import 'package:agenda_app/view/recursos/drawer.dart';
@@ -68,7 +69,7 @@ class BuscaState extends State<Busca> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Perfil()));
+                              builder: (context) =>  Perfil(id: contato.id)));
                       //Ao pressionar
                     },
                     icon: const Icon(
@@ -83,7 +84,11 @@ class BuscaState extends State<Busca> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           //Adiciona um novo contato
-        },
+          Navigator.push(
+            context,
+              MaterialPageRoute(
+                builder: (context) => const Cadastro() ));
+    },
         child: const Icon(Icons.person_add, color: Colors.white54),
       ),
     );
