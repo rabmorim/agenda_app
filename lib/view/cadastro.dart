@@ -1,5 +1,6 @@
 import 'package:agenda_app/model/contato.dart';
 import 'package:agenda_app/model/contato_service.dart';
+import 'package:agenda_app/view/buscar.dart';
 import 'package:agenda_app/view/recursos/barra_superior.dart';
 import 'package:agenda_app/view/recursos/drawer.dart';
 import 'package:flutter/material.dart';
@@ -165,21 +166,53 @@ class CadastroState extends State<Cadastro>{
 
   void cadastrar () {
     ContatoService service = ContatoService();
-    Contato(
-      id: 1, 
+
+    //Guardar o último ID cadastrado
+      int ultimoId = service.listarContato().length + 1;
+
+
+    Contato contato = Contato(
+      id: ultimoId, 
       nome: nome.text,
       sobrenome: sobrenome.text, 
       email: email.text, 
       fone: fone.text
       );
-
       //Enviar o objeto preenchido para adicionar na lista
-    
+      String mensagem = service.cadastrarContato(contato);
+      
+      //Mostra a mensagem de cadastro feito
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            mensagem,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 16
+            ),
+            ),
+          duration:const Duration(milliseconds: 2000) ,
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: Colors.grey.shade400,
+          )
+        );
+
+        //Redireciona para a tela de Busca
+        Future.delayed(
+          const Duration(milliseconds: 2500),
+          () {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder:(context) => const Busca()
+                )
+              );
+          },
+          );
+
   }
-
-  //Limpar os campos
-
-  void limpar () {
+    //Limpar os campos
+    void limpar () {
     nome.text = "";
     sobrenome.text = "";
     fone.text = "";
